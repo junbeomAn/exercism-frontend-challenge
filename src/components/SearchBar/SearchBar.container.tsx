@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { ReactComponent as SearchIcon } from '../assets/images/search.svg';
+import { ReactComponent as SearchIcon } from 'assets/images/search.svg';
 
 import { ISearchBar } from './SearchBar.entity';
 

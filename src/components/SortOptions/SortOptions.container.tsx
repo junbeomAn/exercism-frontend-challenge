@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { ReactComponent as ChevronDown } from '../assets/images/chevron-down.svg';
+import { ReactComponent as ChevronDown } from 'assets/images/chevron-down.svg';
 import { ISortOptions } from './SortOptions.entity';
-import { SortBy } from '../common/entities';
+import { SortBy } from 'common/entities';
 
 const SortOptions = ({ order, setFilterStateValue }: ISortOptions) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

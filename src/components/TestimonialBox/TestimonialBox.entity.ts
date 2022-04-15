@@ -1,4 +1,4 @@
-import { ITestimonialItem } from '../common/entities';
+import { ITestimonialItem } from 'common/entities';
 
 export interface ITestimonialsResponse {
   testimonials: {

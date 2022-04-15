@@ -1,8 +1,8 @@
 import React from 'react';
 
-import DropdownMenu from '../DropdownMenu/DropdownMenu.container';
-import SearchBar from '../SearchBar/SearchBar.container';
-import SortOptions from '../SortOptions/SortOptions.container';
+import DropdownMenu from 'components/DropdownMenu/DropdownMenu.container';
+import SearchBar from 'components/SearchBar/SearchBar.container';
+import SortOptions from 'components/SortOptions/SortOptions.container';
 
 import { IFilter } from './Filter.entity';
 

@@ -6,14 +6,14 @@ import React, {
   useContext,
 } from 'react';
 
-import DropdownMenuItem from '../DropdownMenuItem/DropdownMenuItem.container';
-import { TotalCountContext } from '../contexts/totalCountContext';
-import Axios from '../utils/request';
+import DropdownMenuItem from 'components/DropdownMenuItem/DropdownMenuItem.container';
+import { TotalCountContext } from 'contexts/totalCountContext';
+import Axios from 'utils/request';
 
-import { ReactComponent as ChevronDownSm } from '../assets/images/chevron-down-sm.svg';
-import AllTrack from '../assets/images/all-track.svg';
+import { ReactComponent as ChevronDownSm } from 'assets/images/chevron-down-sm.svg';
+import AllTrack from 'assets/images/all-track.svg';
 
-import { ITrack, ITrackFilter } from '../common/entities';
+import { ITrack, ITrackFilter } from 'common/entities';
 import { IDropdownMenu, ITracksResponse } from './DropdownMenu.entity';
 
 const DropdownMenu = ({

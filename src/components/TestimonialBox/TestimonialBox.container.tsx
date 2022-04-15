@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 
-import Filter from '../Filter/Filter.container';
-import TestimonialList from '../TestimonialList/TestimonialList.container';
-import Pagination from '../Pagination/Pagination.container';
+import Filter from 'components/Filter/Filter.container';
+import TestimonialList from 'components/TestimonialList/TestimonialList.container';
+import Pagination from 'components/Pagination/Pagination.container';
 
-import { createQueryString } from '../utils/query';
-import Axios from '../utils/request';
-import throttle from '../utils/throttle';
-import { TotalCountContext } from '../contexts/totalCountContext';
+import { createQueryString } from 'utils/query';
+import Axios from 'utils/request';
+import throttle from 'utils/throttle';
+import { TotalCountContext } from 'contexts/totalCountContext';
 
 import { ITestimonialsResponse } from './TestimonialBox.entity';
 import {
@@ -16,7 +16,7 @@ import {
   SortBy,
   IFilterState,
   ITrackFilter,
-} from '../common/entities';
+} from 'common/entities';
 
 const TestimonialBox = () => {
   const [testimonials, setTestimonials] = useState<ITestimonialItem[]>([]);

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
-import { ReactComponent as PageLogo } from '../assets/images/page-logo.svg';
-import { ReactComponent as ZigZag } from '../assets/images/zigzag.svg';
-import { TotalCountContext } from '../contexts/totalCountContext';
+import { ReactComponent as PageLogo } from 'assets/images/page-logo.svg';
+import { ReactComponent as ZigZag } from 'assets/images/zigzag.svg';
+import { TotalCountContext } from 'contexts/totalCountContext';
 
 const PageTitle = () => {
   const { totalCount } = useContext(TotalCountContext);

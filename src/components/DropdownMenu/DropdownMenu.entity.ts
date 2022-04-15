@@ -1,4 +1,4 @@
-import { IFilterState, ITrack, ITrackFilter } from '../common/entities';
+import { IFilterState, ITrack, ITrackFilter } from 'common/entities';
 
 export interface IDropdownMenu {
   track: ITrackFilter;

@@ -1,4 +1,4 @@
-import { IFilterState, SortBy } from '../common/entities';
+import { IFilterState, SortBy } from 'common/entities';
 
 export interface ISortOptions {
   order: SortBy;

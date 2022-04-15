@@ -3,8 +3,8 @@ import dayjs from 'dayjs';
 import relTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/en';
 
-import { ReactComponent as ChevronRight } from '../assets/images/chevron-right.svg';
-import { ITestimonialItem } from '../common/entities';
+import { ReactComponent as ChevronRight } from 'assets/images/chevron-right.svg';
+import { ITestimonialItem } from 'common/entities';
 
 dayjs.extend(relTime);
 dayjs.locale('en');

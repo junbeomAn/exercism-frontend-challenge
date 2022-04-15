@@ -1,4 +1,4 @@
-import { IFilterState } from '../common/entities';
+import { IFilterState } from 'common/entities';
 
 export interface ISearchBar {
   exercise: string;
