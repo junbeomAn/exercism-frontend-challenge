@@ -1,13 +1,7 @@
-import React, {
-  useState,
-  useEffect,
-  useMemo,
-  useCallback,
-  useContext,
-} from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 import DropdownMenuItem from 'components/DropdownMenuItem/DropdownMenuItem.container';
-import { TotalCountContext } from 'contexts/totalCountContext';
+
 import Axios from 'utils/request';
 
 import { ReactComponent as ChevronDownSm } from 'assets/images/chevron-down-sm.svg';
@@ -24,7 +18,6 @@ const DropdownMenu = ({
   const [tracks, setTracks] = useState<ITrack[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [checked, setChecked] = useState<string>('All');
-  const { totalCount } = useContext(TotalCountContext);
 
   const getTracks = async () => {
     try {
@@ -52,6 +45,21 @@ const DropdownMenu = ({
       setIsOpen(false);
     },
     [setFilterStateValue]
+  );
+
+  const dropdownTracks = useMemo(
+    () =>
+      tracks.map(({ title, slug, icon_url }) => (
+        <DropdownMenuItem
+          handleItemClick={() => handleItemClick({ slug, icon_url })}
+          title={title}
+          slug={slug}
+          icon_url={icon_url}
+          checked={slug === checked}
+          trackCount={trackCounts[slug]}
+        />
+      )),
+    [tracks, handleItemClick, trackCounts, checked]
   );
 
   useEffect(() => {
@@ -82,19 +90,9 @@ const DropdownMenu = ({
     getTracks();
   }, []);
 
-  const dropdownTracks = useMemo(
-    () =>
-      tracks.map(({ title, slug, icon_url }) => (
-        <DropdownMenuItem
-          handleItemClick={() => handleItemClick({ slug, icon_url })}
-          title={title}
-          slug={slug}
-          icon_url={icon_url}
-          checked={slug === checked}
-          trackCount={trackCounts[slug]}
-        />
-      )),
-    [tracks, handleItemClick, trackCounts, checked]
+  const totalTrackCounts = useMemo(
+    () => Object.values(trackCounts).reduce((sum, count) => sum + count, 0),
+    [trackCounts]
   );
 
   return (
@@ -120,7 +118,7 @@ const DropdownMenu = ({
               slug='All'
               icon_url={AllTrack}
               checked={'All' === checked}
-              trackCount={totalCount}
+              trackCount={totalTrackCounts}
             />
             {dropdownTracks}
           </ul>
