@@ -3,17 +3,15 @@ import React from 'react';
 import { IDropdownMenuItem } from './DropdownMenuItem.entity';
 
 const DropdownMenuItem = ({
-  handleItemClick,
+  handleItemChange,
   title,
-  slug,
   icon_url,
   checked,
   trackCount,
 }: IDropdownMenuItem) => {
   return (
     <li
-      key={slug}
-      onClick={handleItemClick}
+      data-testid='dropdown-item'
       className='w-full h-dropdown-item flex items-center hover:bg-dark-text-label-default ml-0 px-24px hover:bg-lightGrey'
     >
       <label className='w-full h-full flex relative justify-between items-center  cursor-pointer'>
@@ -22,6 +20,7 @@ const DropdownMenuItem = ({
             type={'radio'}
             name='track'
             checked={checked}
+            onChange={handleItemChange}
             className='absolute w-0 h-0 opacity-0 cursor-pointer peer'
           />
           <div
