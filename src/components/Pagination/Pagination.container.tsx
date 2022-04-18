@@ -102,6 +102,7 @@ const Pagination = ({ totalPages, page, getNextPage }: IPagination) => {
         disabled={page === 1}
         onClick={() => getNextPage(page - 1)}
         styles='flex items-center'
+        data-testid='prev-button'
       >
         <ArrowLeft
           className={`mr-10px ${
@@ -118,6 +119,7 @@ const Pagination = ({ totalPages, page, getNextPage }: IPagination) => {
         disabled={page === totalPages}
         onClick={() => getNextPage(page + 1)}
         styles='flex items-center'
+        data-testid='next-button'
       >
         <div className='h-24px text-base font-medium leading-24px'>Next</div>
         <ArrowRight
@@ -141,6 +143,7 @@ function PageButton({
   disabled = false,
   selected = false,
   type = 'number',
+  ...args
 }: IPageButton) {
   const getPageBtnCustomStyles = (
     type: string,
@@ -174,6 +177,7 @@ function PageButton({
         selected,
         disabled
       )} ${styles}`}
+      {...args}
     >
       {children}
     </button>
