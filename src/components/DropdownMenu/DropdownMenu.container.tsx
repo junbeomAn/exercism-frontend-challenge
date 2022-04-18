@@ -31,10 +31,10 @@ const DropdownMenu = ({
   };
 
   const handleOpen = (_: React.MouseEvent) => {
-    setIsOpen(!isOpen);
+    setIsOpen((open) => !open);
   };
 
-  const handleItemClick = useCallback(
+  const handleItemChange = useCallback(
     (t: ITrackFilter) => {
       const newTtrack: ITrackFilter = {
         slug: t.slug !== 'All' ? t.slug : '',
@@ -51,15 +51,15 @@ const DropdownMenu = ({
     () =>
       tracks.map(({ title, slug, icon_url }) => (
         <DropdownMenuItem
-          handleItemClick={() => handleItemClick({ slug, icon_url })}
+          key={slug}
+          handleItemChange={() => handleItemChange({ slug, icon_url })}
           title={title}
-          slug={slug}
           icon_url={icon_url}
           checked={slug === checked}
           trackCount={trackCounts[slug]}
         />
       )),
-    [tracks, handleItemClick, trackCounts, checked]
+    [tracks, handleItemChange, trackCounts, checked]
   );
 
   useEffect(() => {
@@ -96,11 +96,11 @@ const DropdownMenu = ({
   );
 
   return (
-    <div id='dropdown' className='relative'>
+    <div id='dropdown' data-testid='dropdown' className='relative'>
       <button onClick={handleOpen} className='flex items-center'>
         <img
           className='w-icon-big h-icon-big'
-          src={currentTrack.icon_url || AllTrack}
+          src={currentTrack?.icon_url || AllTrack}
           alt={'current-track'}
         />
         <ChevronDownSm className='ml-12px' />
@@ -111,11 +111,10 @@ const DropdownMenu = ({
         >
           <ul className='w-full h-full overflow-y-auto'>
             <DropdownMenuItem
-              handleItemClick={() =>
-                handleItemClick({ slug: 'All', icon_url: AllTrack })
+              handleItemChange={() =>
+                handleItemChange({ slug: 'All', icon_url: AllTrack })
               }
               title='All'
-              slug='All'
               icon_url={AllTrack}
               checked={'All' === checked}
               trackCount={totalTrackCounts}
