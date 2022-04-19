@@ -30,7 +30,7 @@ const Header = () => {
     icons: React.FunctionComponent<React.SVGProps<SVGSVGElement>>[]
   ) => {
     return icons.map((IconElement, i) => (
-      <li className='relative flex space-x-16px'>
+      <li key={tabs[i]} className='relative flex space-x-16px'>
         {WithActiveTab(
           <IconElement
             stroke={`${isCurrentTab(tabs[i]) ? '#fff' : '#5c5589'}`}
