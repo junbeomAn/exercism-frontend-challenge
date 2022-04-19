@@ -17,18 +17,11 @@ describe('Pagination Component', () => {
   // page 97, last page 100, render 1 ... 95,96,97,98,99,100
   // page 96, last page 100, render 1 ... 94,95,96,97,98 ... 100
 
-  const getNextPage = jest.fn();
   test('renders first, last, Previous and Next page button in default', () => {
     let page = 1;
     let totalPages = 100;
 
-    render(
-      <Pagination
-        totalPages={totalPages}
-        page={page}
-        getNextPage={getNextPage}
-      />
-    );
+    render(<Pagination totalPages={totalPages} page={page} />);
     // consider if child is rendered, parent also rendered.
     const prevBtn = screen.getByText('Previous');
     const nextBtn = screen.getByText('Next');
@@ -49,13 +42,7 @@ describe('Pagination Component', () => {
     let page = 1;
     let totalPages = 100;
 
-    render(
-      <Pagination
-        totalPages={totalPages}
-        page={page}
-        getNextPage={getNextPage}
-      />
-    );
+    render(<Pagination totalPages={totalPages} page={page} />);
     const prevBtn = screen.getByTestId('prev-button');
 
     expect(prevBtn).toBeDisabled();
@@ -64,13 +51,7 @@ describe('Pagination Component', () => {
     let page = 100;
     let totalPages = 100;
 
-    render(
-      <Pagination
-        totalPages={totalPages}
-        page={page}
-        getNextPage={getNextPage}
-      />
-    );
+    render(<Pagination totalPages={totalPages} page={page} />);
     const nextBtn = screen.getByTestId('next-button');
 
     expect(nextBtn).toBeDisabled();
@@ -80,13 +61,7 @@ describe('Pagination Component', () => {
     let page = 1;
     let totalPages = 100;
 
-    render(
-      <Pagination
-        totalPages={totalPages}
-        page={page}
-        getNextPage={getNextPage}
-      />
-    );
+    render(<Pagination totalPages={totalPages} page={page} />);
 
     expect(screen.getByText(1)).toBeInTheDocument();
     expect(screen.getByText(2)).toBeInTheDocument();
@@ -99,13 +74,7 @@ describe('Pagination Component', () => {
     let page = 4;
     let totalPages = 100;
 
-    render(
-      <Pagination
-        totalPages={totalPages}
-        page={page}
-        getNextPage={getNextPage}
-      />
-    );
+    render(<Pagination totalPages={totalPages} page={page} />);
 
     expect(screen.getByText(1)).toBeInTheDocument();
     expect(screen.getByText(2)).toBeInTheDocument();
@@ -121,13 +90,7 @@ describe('Pagination Component', () => {
     let page = 96;
     let totalPages = 100;
 
-    render(
-      <Pagination
-        totalPages={totalPages}
-        page={page}
-        getNextPage={getNextPage}
-      />
-    );
+    render(<Pagination totalPages={totalPages} page={page} />);
 
     expect(screen.getByText(1)).toBeInTheDocument();
     expect(screen.getByText(94)).toBeInTheDocument();
@@ -143,13 +106,7 @@ describe('Pagination Component', () => {
     let page = 100;
     let totalPages = 100;
 
-    render(
-      <Pagination
-        totalPages={totalPages}
-        page={page}
-        getNextPage={getNextPage}
-      />
-    );
+    render(<Pagination totalPages={totalPages} page={page} />);
 
     expect(screen.getByText(1)).toBeInTheDocument();
     expect(screen.getByText(98)).toBeInTheDocument();
@@ -173,9 +130,29 @@ describe('Pagination Component', () => {
 
     expect(getNextPage).toHaveBeenCalled();
 
-    const secondBtn = screen.getByText(2);
-    fireEvent.click(secondBtn);
+    const secondPageBtn = screen.getByText(2);
+    fireEvent.click(secondPageBtn);
 
     expect(getNextPage).toHaveBeenCalled();
+  });
+
+  test('page 2 should have class names to hightlight when page 2 is selected', () => {
+    render(<Pagination totalPages={100} page={2} />);
+
+    const secondPageBtn = screen.getByText(2);
+    const classNames =
+      `bg-light-highlight border-label-tertiary text-label-default`.split(' ');
+
+    expect(secondPageBtn).toHaveClass(...classNames);
+  });
+  // prev, next both disabled when total page is 1
+  test('should have both prev and next button disabled when total page is 1', () => {
+    render(<Pagination totalPages={1} page={1} />);
+
+    const prevBtn = screen.getByTestId('prev-button');
+    const nextBtn = screen.getByTestId('next-button');
+
+    expect(prevBtn).toBeDisabled();
+    expect(nextBtn).toBeDisabled();
   });
 });
