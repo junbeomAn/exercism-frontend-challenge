@@ -4,7 +4,7 @@ import { ReactComponent as LoadingSpinner } from 'assets/images/loading-spinner.
 const SpinnerPresenter = ({ message = '' }) => {
   return (
     <div className='w-testimonial h-testimonial flex flex-col items-center justify-center'>
-      <LoadingSpinner className='animate-spin' />
+      <LoadingSpinner className='animate-spin' title='loading' />
       {message && <span className='mt-4 text-xl'>{message}</span>}
     </div>
   );

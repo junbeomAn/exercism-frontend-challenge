@@ -15,6 +15,7 @@ const SearchBar = ({ setFilterStateValue }: ISearchBar) => {
   };
   return (
     <label
+      data-testid='search-bar'
       className={`w-search h-search ml-24px bg-dark-text-label-default rounded-inner px-21px py-11px flex items-center border border-transparent focus-within:shadow-filter-active focus-within:border-light-blue`}
     >
       <SearchIcon />

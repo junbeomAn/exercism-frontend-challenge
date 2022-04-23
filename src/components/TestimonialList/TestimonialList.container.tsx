@@ -14,11 +14,15 @@ const TestimonialList = ({ testimonials, isLoading }: ITestimonialList) => {
     return <Spinner message='Now loading testimonials...' />;
   }
 
-  if (testimonialItems.length === 0) {
+  if (testimonials.length === 0) {
     return <NoResults />;
   }
 
-  return <ul className='w-testimonial h-testimonial'>{testimonialItems}</ul>;
+  return (
+    <ul data-testid='testimonial-list' className='w-testimonial h-testimonial'>
+      {testimonialItems}
+    </ul>
+  );
 };
 
 export default TestimonialList;
