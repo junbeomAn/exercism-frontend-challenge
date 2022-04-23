@@ -18,7 +18,7 @@ const TestimonialItem = ({
   created_at,
 }: ITestimonialItem) => {
   const handleItemClick = (_: React.MouseEvent) => {
-    window.history.pushState(null, '', id);
+    window.history.pushState(null, '', `${id}`);
   };
   return (
     <li
@@ -44,10 +44,7 @@ const TestimonialItem = ({
         </div>
       </div>
       <div className='absolute left-content top-1/2 -translate-y-1/2  w-testimonial-content text-left text-light-text-default-base text-md-sm font-normal leading-26px'>
-        <p
-          // ... 효과, font, line-height, weight, color
-          className='w-full overflow-x-hidden text-ellipsis whitespace-nowrap'
-        >
+        <p className='w-full overflow-x-hidden text-ellipsis whitespace-nowrap'>
           {content}
         </p>
       </div>
