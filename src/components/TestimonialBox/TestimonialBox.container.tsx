@@ -32,8 +32,8 @@ const TestimonialBox = () => {
 
   const { setTotalCount } = useContext(TotalCountContext);
 
-  const setFilterStateValue = (filterState: Partial<IFilterState>) => {
-    setFilterState((prev) => ({ ...prev, ...filterState }));
+  const setFilterStateValue = (newFilterState: Partial<IFilterState>) => {
+    setFilterState((prev) => ({ ...prev, ...newFilterState }));
   };
 
   const getTestimonials = useCallback(
@@ -89,7 +89,7 @@ const TestimonialBox = () => {
       track: filterState.track.slug,
       exercise: filterState.exercise,
     };
-    throttle(getTestimonials, 300, filterValue);
+    throttle(getTestimonials, 200, filterValue);
     setPage(1);
   }, [filterState, getTestimonials]);
 
