@@ -15,10 +15,7 @@ const Filter = ({ filterState, trackCounts, setFilterStateValue }: IFilter) => {
           track={filterState.track}
           trackCounts={trackCounts}
         />
-        <SearchBar
-          exercise={filterState.exercise}
-          setFilterStateValue={setFilterStateValue}
-        />
+        <SearchBar setFilterStateValue={setFilterStateValue} />
       </div>
       <SortOptions
         order={filterState.order}
