@@ -1,9 +1,9 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import Pagination from './Pagination.container';
 
 describe('Pagination Component', () => {
-  // too much..?
-
   // page 1, prev non clickable
   // page lastpage, next non clickable
   // page 1, lastpage 100, render 1,2,3 ... 100
@@ -23,8 +23,8 @@ describe('Pagination Component', () => {
 
     render(<Pagination totalPages={totalPages} page={page} />);
     // consider if child is rendered, parent also rendered.
-    const prevBtn = screen.getByText('Previous');
-    const nextBtn = screen.getByText('Next');
+    const prevBtn = screen.getByRole('button', { name: /Previous/ });
+    const nextBtn = screen.getByRole('button', { name: /Next/ });
 
     expect(prevBtn).toBeInTheDocument();
     expect(nextBtn).toBeInTheDocument();
@@ -43,7 +43,7 @@ describe('Pagination Component', () => {
     let totalPages = 100;
 
     render(<Pagination totalPages={totalPages} page={page} />);
-    const prevBtn = screen.getByTestId('prev-button');
+    const prevBtn = screen.getByRole('button', { name: /Previous/ });
 
     expect(prevBtn).toBeDisabled();
   });
@@ -52,7 +52,7 @@ describe('Pagination Component', () => {
     let totalPages = 100;
 
     render(<Pagination totalPages={totalPages} page={page} />);
-    const nextBtn = screen.getByTestId('next-button');
+    const nextBtn = screen.getByRole('button', { name: /Next/ });
 
     expect(nextBtn).toBeDisabled();
   });
@@ -115,44 +115,72 @@ describe('Pagination Component', () => {
     expect(screen.queryByText(totalPages + 1)).not.toBeInTheDocument();
   });
 
-  test('should call getNextPage function on btn click', () => {
+  test('should call getNextPage function on btn click', async () => {
     const getNextPage = jest.fn();
 
     render(<Pagination totalPages={100} page={2} getNextPage={getNextPage} />);
 
-    const nextBtn = screen.getByText('Next');
-    fireEvent.click(nextBtn);
+    const nextBtn = screen.getByRole('button', { name: /Next/ });
 
-    expect(getNextPage).toHaveBeenCalled();
+    userEvent.click(nextBtn);
 
-    const prevBtn = screen.getByText('Previous');
-    fireEvent.click(prevBtn);
+    await waitFor(() => {
+      expect(getNextPage).toHaveBeenCalled();
+    });
 
-    expect(getNextPage).toHaveBeenCalled();
+    const prevBtn = screen.getByRole('button', { name: /Previous/ });
+    userEvent.click(prevBtn);
+
+    await waitFor(() => {
+      expect(getNextPage).toHaveBeenCalled();
+    });
 
     const secondPageBtn = screen.getByText(2);
-    fireEvent.click(secondPageBtn);
+    userEvent.click(secondPageBtn);
 
-    expect(getNextPage).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(getNextPage).toHaveBeenCalled();
+    });
   });
 
   test('page 2 should have class names to hightlight when page 2 is selected', () => {
     render(<Pagination totalPages={100} page={2} />);
 
     const secondPageBtn = screen.getByText(2);
-    const classNames =
-      `bg-light-highlight border-label-tertiary text-label-default`.split(' ');
+    const classNames = `bg-light-highlight border-label-tertiary text-label-default`;
 
-    expect(secondPageBtn).toHaveClass(...classNames);
+    expect(secondPageBtn).toHaveClass(classNames);
   });
   // prev, next both disabled when total page is 1
   test('should have both prev and next button disabled when total page is 1', () => {
     render(<Pagination totalPages={1} page={1} />);
 
-    const prevBtn = screen.getByTestId('prev-button');
-    const nextBtn = screen.getByTestId('next-button');
+    const prevBtn = screen.getByRole('button', { name: /Previous/ });
+    const nextBtn = screen.getByRole('button', { name: /Next/ });
 
     expect(prevBtn).toBeDisabled();
     expect(nextBtn).toBeDisabled();
+  });
+
+  test('should have just one page number button when total page is 1', () => {
+    render(<Pagination totalPages={1} page={1} />);
+
+    const pageBtns = screen.getByRole('list');
+    const pages = within(pageBtns).getAllByRole('listitem');
+
+    expect(pages).toHaveLength(1);
+  });
+
+  test('should call getNextPage method when user move page', async () => {
+    const getNextPage = jest.fn();
+    render(<Pagination totalPages={10} page={1} getNextPage={getNextPage} />);
+
+    const nextBtn = screen.getByRole('button', { name: /Next/ });
+
+    userEvent.click(nextBtn);
+
+    await waitFor(() => {
+      expect(getNextPage).toBeCalled();
+    });
   });
 });

@@ -96,13 +96,15 @@ const Pagination = ({ totalPages, page, getNextPage }: IPagination) => {
   };
 
   return (
-    <section className='w-full flex justify-between h-pagination px-32px py-16px border-t border-light-border'>
+    <section
+      data-testid='pagination'
+      className='w-full flex justify-between h-pagination px-32px py-16px border-t border-light-border'
+    >
       <PageButton
         type='arrow'
         disabled={page === 1}
         onClick={() => getNextPage(page - 1)}
         styles='flex items-center'
-        data-testid='prev-button'
       >
         <ArrowLeft
           className={`mr-10px ${
@@ -119,7 +121,6 @@ const Pagination = ({ totalPages, page, getNextPage }: IPagination) => {
         disabled={page === totalPages}
         onClick={() => getNextPage(page + 1)}
         styles='flex items-center'
-        data-testid='next-button'
       >
         <div className='h-24px text-base font-medium leading-24px'>Next</div>
         <ArrowRight
