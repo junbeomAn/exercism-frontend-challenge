@@ -13,7 +13,7 @@ import TestimonialBox from './TestimonialBox.container';
  * all reversed
  */
 
-describe('SortOptions', () => {
+describe('SortOptions Component', () => {
   beforeEach(() => {
     window.globalThis.IS_REACT_ACT_ENVIRONMENT = true;
     jest.useFakeTimers();

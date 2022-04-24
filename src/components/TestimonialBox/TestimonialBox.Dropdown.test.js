@@ -3,15 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { TotalCountContextProvider } from 'contexts/totalCountContext';
 
 import TestimonialBox from './TestimonialBox.container';
-/**
- *
- * - Dropdown
- *    closed when outside of dropdown list area clicked
- *    item filter is applied to current track button
- *    item filter is applied to dropdown list
- */
 
-describe('Dropdown', () => {
+describe('Dropdown Component', () => {
   beforeEach(() => {
     window.globalThis.IS_REACT_ACT_ENVIRONMENT = true;
     jest.useFakeTimers();

@@ -46,15 +46,4 @@ describe('SearchBar Component', () => {
 
     expect(listItem).toHaveTextContent(/gigasecond/i);
   });
-
-  /** TestimonialList
-   *   should render items
-   *
-   * */
-
-  /** Pagination
-   *    when next page or button 2 clicked, next page should be rendered
-   *    when prev page clicked, prev page should be rendered
-   *  use to be called with (page) -> move to pagination test file
-   *  */
 });
