@@ -3,6 +3,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import DropdownMenuItem from 'components/DropdownMenuItem/DropdownMenuItem.container';
 
 import Axios from 'utils/request';
+import { DATA_FETCH_FAILURE_MSG } from '../../constants';
 
 import { ReactComponent as ChevronDownSm } from 'assets/images/chevron-down-sm.svg';
 import AllTrack from 'assets/images/all-track.svg';
@@ -24,9 +25,7 @@ const DropdownMenu = ({
       const res = await Axios.get<ITracksResponse>(`/tracks`);
       setTracks(res.data.tracks);
     } catch (err) {
-      if (err instanceof Error) {
-        alert(err.message);
-      }
+      alert(DATA_FETCH_FAILURE_MSG);
     }
   };
 

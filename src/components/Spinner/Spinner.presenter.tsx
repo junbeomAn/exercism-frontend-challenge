@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ReactComponent as LoadingSpinner } from 'assets/images/loading-spinner.svg';
 
 const SpinnerPresenter = ({ message = '' }) => {

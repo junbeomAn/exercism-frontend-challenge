@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { ReactComponent as ChevronDown } from 'assets/images/chevron-down.svg';
+
 import { ISortOptions } from './SortOptions.entity';
 import { SortBy } from 'common/entities';
 

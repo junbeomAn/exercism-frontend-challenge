@@ -7,6 +7,8 @@ import Pagination from 'components/Pagination/Pagination.container';
 import { createQueryString } from 'utils/query';
 import Axios from 'utils/request';
 import throttle from 'utils/throttle';
+import { DATA_FETCH_FAILURE_MSG } from '../../constants';
+
 import { TotalCountContext } from 'contexts/totalCountContext';
 
 import { ITestimonialsResponse } from './TestimonialBox.entity';
@@ -19,16 +21,16 @@ import {
 } from 'common/entities';
 
 const TestimonialBox = () => {
+  const [page, setPage] = useState<number>(1);
   const [testimonials, setTestimonials] = useState<ITestimonialItem[]>([]);
   const [totalPages, setTotalPages] = useState<number>(0);
+  const [trackCounts, setTrackCounts] = useState<{ [key: string]: number }>({});
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [filterState, setFilterState] = useState<IFilterState>({
     track: {} as ITrackFilter,
     exercise: '',
     order: SortBy.new,
   });
-  const [page, setPage] = useState<number>(1);
-  const [trackCounts, setTrackCounts] = useState<{ [key: string]: number }>({});
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { setTotalCount } = useContext(TotalCountContext);
 
@@ -50,6 +52,7 @@ const TestimonialBox = () => {
         exercise,
       };
       const params = createQueryString<IFetchParams>(query);
+
       setIsLoading(true);
       try {
         const res = await Axios.get<ITestimonialsResponse>(
@@ -62,10 +65,7 @@ const TestimonialBox = () => {
         setTrackCounts(track_counts);
         setTotalCount(pagination.total_count);
       } catch (err) {
-        if (err instanceof Error) {
-          console.error(err.message);
-          alert('Failed to load results. Please try it again.');
-        }
+        alert(DATA_FETCH_FAILURE_MSG);
       } finally {
         setIsLoading(false);
       }

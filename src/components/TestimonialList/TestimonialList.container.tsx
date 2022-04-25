@@ -1,9 +1,10 @@
 import React from 'react';
-import TestimonialItem from 'components/TestimonialItem/TestimonialItem.container';
 
-import { ITestimonialList } from './TestimonialList.entity';
+import TestimonialItem from 'components/TestimonialItem/TestimonialItem.container';
 import NoResults from 'components/NoResults/NoResults.presenter';
 import Spinner from 'components/Spinner/Spinner.presenter';
+
+import { ITestimonialList } from './TestimonialList.entity';
 
 const TestimonialList = ({ testimonials, isLoading }: ITestimonialList) => {
   const testimonialItems = testimonials.map((item) => (
