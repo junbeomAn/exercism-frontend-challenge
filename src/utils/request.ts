@@ -1,12 +1,11 @@
 import axios from 'axios';
-
-const url = `https://exercism.org/api/v2`;
+import { baseUrl } from '../constants';
 
 const Axios = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  baseURL: url,
+  baseURL: baseUrl,
 });
 
 Axios.interceptors.request.use(
@@ -14,6 +13,9 @@ Axios.interceptors.request.use(
     return config;
   },
   (error) => {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
     throw new Error(error);
   }
 );
@@ -23,6 +25,9 @@ Axios.interceptors.response.use(
     return res;
   },
   (error) => {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
     throw new Error(error);
   }
 );
