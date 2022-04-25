@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
+// not used
+
 const useFirstRender = () => {
   const firstRender = useRef(true);
 
