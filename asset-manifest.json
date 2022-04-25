@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/exercism-frontend-challenge/static/css/main.a8e8d8fc.css",
+    "main.js": "/exercism-frontend-challenge/static/js/main.a931e513.js",
+    "static/media/avatar.svg": "/exercism-frontend-challenge/static/media/avatar.26cb4e5dd63389b5d3c7c3ec28b6b991.svg",
+    "static/media/badge.svg": "/exercism-frontend-challenge/static/media/badge.79d66c0b1bc406b4d74ac6e818cbf7a3.svg",
+    "static/media/header-logo.svg": "/exercism-frontend-challenge/static/media/header-logo.b8a499bcf446c25b865e34481a2522af.svg",
+    "static/media/all-track.svg": "/exercism-frontend-challenge/static/media/all-track.f669d5e468698430179207957a6c1394.svg",
+    "static/media/active-nav.svg": "/exercism-frontend-challenge/static/media/active-nav.d2725ce80196554a0cf353371c120544.svg",
+    "static/media/page-logo.svg": "/exercism-frontend-challenge/static/media/page-logo.32e567f0e6715c87b091b7147fb3ae40.svg",
+    "static/media/social-media.svg": "/exercism-frontend-challenge/static/media/social-media.681e5b6fd9bfab02e6375a661e8bec54.svg",
+    "static/media/dashboard.svg": "/exercism-frontend-challenge/static/media/dashboard.d7da32a37f9cf7417c73aeb89f4d23a1.svg",
+    "static/media/toys.svg": "/exercism-frontend-challenge/static/media/toys.ee73af155713b6d2a772b3eb452c0779.svg",
+    "static/media/loading-spinner.svg": "/exercism-frontend-challenge/static/media/loading-spinner.82d82abf779b667adb5a38b2022bbedd.svg",
+    "static/media/vertical-nav-menu.svg": "/exercism-frontend-challenge/static/media/vertical-nav-menu.bebe1059401338e6f9a0793776c6269c.svg",
+    "static/media/badge-indicator.svg": "/exercism-frontend-challenge/static/media/badge-indicator.d9b5b27a27fba552841dbc26a33146dd.svg",
+    "index.html": "/exercism-frontend-challenge/index.html",
+    "static/media/alarm-bell.svg": "/exercism-frontend-challenge/static/media/alarm-bell.b66ac7cf9809a03f683bd73562945ddf.svg",
+    "static/media/chat.svg": "/exercism-frontend-challenge/static/media/chat.d0d4a94de357389e8ee9ee025a533ec5.svg",
+    "static/media/track.svg": "/exercism-frontend-challenge/static/media/track.b5705f4384942ab5da665879cf1fb989.svg",
+    "static/media/search.svg": "/exercism-frontend-challenge/static/media/search.6e1d8e6cef5c7b80950ae95e131808e0.svg",
+    "static/media/arrow-left.svg": "/exercism-frontend-challenge/static/media/arrow-left.328d4718252317647a68f2cc0e8d0714.svg",
+    "static/media/arrow-right.svg": "/exercism-frontend-challenge/static/media/arrow-right.2afda13fd5136d2c62ac64c6ad528208.svg",
+    "static/media/chevron-down-sm.svg": "/exercism-frontend-challenge/static/media/chevron-down-sm.75af00b283f1f57d8666cb949a517168.svg",
+    "static/media/chevron-right.svg": "/exercism-frontend-challenge/static/media/chevron-right.b7de663c2168c7ec05ffc7c6955fa9f2.svg",
+    "static/media/chevron-down.svg": "/exercism-frontend-challenge/static/media/chevron-down.13630f6511af874fa8a97a5fdc433a83.svg",
+    "static/media/zigzag.svg": "/exercism-frontend-challenge/static/media/zigzag.9257779ff36ab4f776b8d2586e72a91a.svg",
+    "main.a8e8d8fc.css.map": "/exercism-frontend-challenge/static/css/main.a8e8d8fc.css.map",
+    "main.a931e513.js.map": "/exercism-frontend-challenge/static/js/main.a931e513.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a8e8d8fc.css",
+    "static/js/main.a931e513.js"
+  ]
+}
