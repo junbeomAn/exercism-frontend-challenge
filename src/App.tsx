@@ -9,7 +9,7 @@ import { TotalCountContextProvider } from './contexts/totalCountContext';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className='w-full flex flex-col items-center'>
         <Header />
         <Routes>
