@@ -1,5 +1,8 @@
 # Exercism frontend challenge
 
+![image](https://user-images.githubusercontent.com/32658347/165212158-3d291aa4-7942-45ee-af99-1b8967ff47cb.png)
+
+
 ## Job listing
 
  [https://github.com/exercism/hiring-frontend-developer](https://github.com/exercism/hiring-frontend-developer)
