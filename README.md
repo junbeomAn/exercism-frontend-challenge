@@ -11,6 +11,9 @@
 
 [https://junbeoman.github.io/exercism-frontend-challenge/](https://junbeoman.github.io/exercism-frontend-challenge/)
 
+## Design
+
+- [https://www.figma.com/file/qvDOfGC4uLDUcjRDaVMIrU/Exercism-Front-end-Job-Project](https://www.figma.com/file/qvDOfGC4uLDUcjRDaVMIrU/Exercism-Front-end-Job-Project)
 
 ## Used skills
 
@@ -31,9 +34,6 @@
 `github-pages`
 
 
-## Design
-
-- [https://www.figma.com/file/qvDOfGC4uLDUcjRDaVMIrU/Exercism-Front-end-Job-Project](https://www.figma.com/file/qvDOfGC4uLDUcjRDaVMIrU/Exercism-Front-end-Job-Project)
 
 
 
